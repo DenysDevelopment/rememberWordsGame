@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word game</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="first-screen screen">
+      <div class="container">
+        <div class="first-screen__wrapper">
+          <h1 class="first-screen__title">
+            Игра <br />
+            <b>Запомни слова!</b>
+          </h1>
+          <p class="first-screen__sub-title">
+            <b class="sub-title_black">Описание игры:</b> для участия вам
+            понадобится от одного до восьми игроков, в игре <br />
+            вам нужно за определенное время запомнить слова, <br />
+            а в каком порядке, это уже выбирать вам, ведь режимов игры
+            несколько! <br />
+            Во время игры у вас создаются новые нейроны!
+          </p>
+          <button class="first-screen__btn btn" data-screen-next="2">
+            Играть
+          </button>
+        </div>
+      </div>
+      <div class="words">
+        <div class="words__word word-1" style="top: 15%; left: 1%">Забор</div>
+        <div class="words__word word-2" style="top: -4%; left: 40%">Иисус</div>
+        <div class="words__word word-3" style="top: 40%; left: 15%">Тапок</div>
+        <div class="words__word" style="top: 70%; left: 10%">Книга</div>
+        <div class="words__word" style="top: 70%; left: 64%">Петух</div>
+        <div class="words__word word-6" style="top: 45%; left: 70%">Радуга</div>
+        <div class="words__word word-7" style="top: 65%; left: 35%">Бревно</div>
+        <div class="words__word word-8" style="top: 20%; left: 80%">Корова</div>
+      </div>
+    </section>
+    <section class="two-screen screen screen--lock">
+      <div class="container">
+        <div class="container">
+          <div class="two-screen__body">
+            <p class="two-screen__text">Ожидание...</p>
+            <div class="column">
+              <div class="timer">0</div>
+            </div>
+            <div class="column">
+              <button class="btn__next-word btn">Далее</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/index.js"></script>
+  </body>
+</html>
