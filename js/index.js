@@ -35,14 +35,13 @@ const settings = {
 let currentWord = 1
 const defaultWords = ['Корова', "Авель", "Авелька"];
 
-
+//TODO: зробити нопку далее
 function startGame() {
   countDown(settings.wordsPerSecond)
   showWordNext()
   currentWord++
   const nextWordTimer = setInterval(() => {
     showWordNext()
-    currentWord++
     if (currentWord > defaultWords.length) {
       clearInterval(nextWordTimer)
     }
@@ -54,6 +53,7 @@ function startGame() {
 function showWordNext(words) {
   document.querySelector('.two-screen__text').innerHTML = defaultWords[currentWord - 1]
   countDown(settings.wordsPerSecond)
+  currentWord++
 }
 
 function countDown(timeCount) {

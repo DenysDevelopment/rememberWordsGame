@@ -41,7 +41,6 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-
 .two-screen__text {
   color: #fff;
   font-size: 2em;
@@ -59,6 +58,28 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: 900;
+}
+
+@media (min-width: 762px) {
+  .two-screen__body {
+    display: grid;
+    grid-template-columns: 200px 400px;
+    grid-template-rows: repeat(2, 200px);
+    text-align: center;
+  }
+
+  .two-screen__text {
+    grid-column: 1 / -1;
+    font-size: 4em;
+  }
+
+  .timer {
+    margin-left: auto;
+  }
+
+  .btn {
+    margin-right: auto;
+  }
 }
 
 .screen {
@@ -126,10 +147,20 @@ body {
   background: #3dadd0;
   border: 4px solid #ffffff;
   box-shadow: 0px 0px 38px rgba(0, 0, 0, 0.25);
-  padding: 0.5em 5em;
+  padding: 0.3em 3em;
   font-family: "Roboto", sans-serif;
   color: #ffffff;
   font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  display: block;
+}
+
+@media (any-hover: hover) {
+  .btn:hover {
+    background: #2f8eac;
+    border-radius: 10px;
+  }
 }
 @media (max-width: 1200px) {
   .btn {
@@ -138,7 +169,7 @@ body {
 }
 @media screen and (max-width: 962px) {
   .btn {
-    padding: 0.5em 3em;
+    padding: 0.2em 3em;
   }
 }
 
