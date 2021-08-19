@@ -1,4 +1,4 @@
-const btns = document.querySelectorAll('.btn')
+const btns = document.querySelectorAll('.btn__screen-next')
 const screens = document.querySelectorAll('.screen')
 let screen = 1
 
@@ -29,37 +29,60 @@ function screenShow(screen) {
 const settings = {
   words: 5,
   mode: 1,
-  wordsPerSecond: 5
+  wordsPerSecond: 6
 }
 
-let currentWord = 1
-const defaultWords = ['Корова', "Авель", "Авелька"];
+let currentWord = 0
+const defaultWords = ['Корова', 'Боба', 'Авель'];
 
-//TODO: зробити нопку далее
+
 function startGame() {
   countDown(settings.wordsPerSecond)
   showWordNext()
-  currentWord++
   const nextWordTimer = setInterval(() => {
     showWordNext()
-    if (currentWord > defaultWords.length) {
+    if (currentWord >= defaultWords.length) {
       clearInterval(nextWordTimer)
     }
+    finishGame()
   }, (settings.wordsPerSecond + 1) * 1000)
-
-
+  for (let i = 0; i < defaultWords.length; i++) {
+    document.querySelector('.question-screen__inputs').innerHTML += `<li><input type="text"></li>`
+  }
 }
 
-function showWordNext(words) {
-  document.querySelector('.two-screen__text').innerHTML = defaultWords[currentWord - 1]
-  countDown(settings.wordsPerSecond)
+function finishGame() {
+  setTimeout(() => {
+    if (currentWord >= defaultWords.length) {
+      screenShow(2)
+    }
+  }, settings.wordsPerSecond * 1000);
+
+  const inputs = document.querySelectorAll('.question-screen__inputs input')
+  console.log(inputs);
+  document.querySelector('.btn__result').addEventListener('click', () => {
+    for (let i = 0; i < defaultWords.length; i++) {
+      const el = defaultWords[i];
+      if (inputs[i].value.trim().toUpperCase() == el.toUpperCase()) {
+        inputs[i].style.borderColor = 'green'
+      } else {
+        inputs[i].style.borderColor = 'red'
+      }
+    }
+  })
+}
+
+function showWordNext(next = false) {
+  document.querySelector('.two-screen__text').innerHTML = defaultWords[currentWord]
+  countDown(settings.wordsPerSecond, next)
   currentWord++
 }
 
-function countDown(timeCount) {
+function countDown(timeCount, stop = false) {
   let time = +timeCount
   document.querySelector('.timer').innerHTML = time
   --time
+
   const timer = setInterval(() => {
     if (time < 0) {
       clearInterval(timer)
@@ -67,5 +90,7 @@ function countDown(timeCount) {
       document.querySelector('.timer').innerHTML = time
       --time
     }
+
   }, 1000)
+
 }
