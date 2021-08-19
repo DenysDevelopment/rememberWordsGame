@@ -112,6 +112,18 @@ body {
   z-index: -1;
 }
 
+.question-screen__inputs li::after {
+  content: attr(data-err);
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 40px;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: rgb(54, 228, 19);
+}
+
 @media (min-width: 762px) {
   .two-screen__body {
     display: grid;

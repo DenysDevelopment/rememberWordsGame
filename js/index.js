@@ -29,11 +29,11 @@ function screenShow(screen) {
 const settings = {
   words: 5,
   mode: 1,
-  wordsPerSecond: 6
+  wordsPerSecond: 2
 }
 
 let currentWord = 0
-const defaultWords = ['Корова', 'Боба', 'Авель'];
+const defaultWords = ['Корова', 'Авель'];
 
 
 function startGame() {
@@ -52,11 +52,11 @@ function startGame() {
 }
 
 function finishGame() {
-  setTimeout(() => {
-    if (currentWord >= defaultWords.length) {
+  if (currentWord >= defaultWords.length) {
+    setTimeout(() => {
       screenShow(2)
-    }
-  }, settings.wordsPerSecond * 1000);
+    }, settings.wordsPerSecond * 1000);
+  }
 
   const inputs = document.querySelectorAll('.question-screen__inputs input')
   console.log(inputs);
@@ -66,7 +66,15 @@ function finishGame() {
       if (inputs[i].value.trim().toUpperCase() == el.toUpperCase()) {
         inputs[i].style.borderColor = 'green'
       } else {
+        inputs[i].parentNode.dataset.err = el
         inputs[i].style.borderColor = 'red'
+        inputs[i].style.textDecoration = 'line-through'
+        inputs[i].style.filter = 'greyscale(1)'
+        inputs[i].style.textShadow = 'none'
+        inputs[i].style.pointerEvents = 'none'
+        inputs[i].style.textDecorationThickness = '3px'
+        inputs[i].style.textDecorationColor = 'red'
+        inputs[i].style.color = '#000'
       }
     }
   })
