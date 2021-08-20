@@ -18,6 +18,13 @@ body {
   margin: 0 auto;
 }
 
+.first-screen__btn:disabled {
+  filter: grayscale(1);
+  pointer-events: none;
+  opacity: 0.5;
+  transition: all 0.3s ease 0s;
+}
+
 .row {
   display: flex;
 }

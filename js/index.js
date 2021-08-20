@@ -1,3 +1,16 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyANTPyxVxSZnqfVVQlDx7oMHP-Y5gvC-lg",
+  authDomain: "rememberwordsgame.firebaseapp.com",
+  projectId: "rememberwordsgame",
+  storageBucket: "rememberwordsgame.appspot.com",
+  messagingSenderId: "212600408560",
+  appId: "1:212600408560:web:8ff560c16f0291dc5c3535"
+};
+
+firebase.initializeApp(firebaseConfig);
+const firebaseRef = firebase.database().ref('team')
+
+
 const btns = document.querySelectorAll('.btn__screen-next')
 const screens = document.querySelectorAll('.screen')
 let screen = 1
@@ -8,7 +21,10 @@ for (let i = 0; i < btns.length; i++) {
   btn.addEventListener('click', () => {
     screen = +btn.dataset.screenNext;
     screenShow(btn.dataset.screenNext - 1)
-    if (screen === 2) startGame()
+    if (screen === 2) {
+      startGame()
+      firebaseRef.set({})
+    }
   })
 }
 
@@ -31,9 +47,20 @@ const settings = {
   mode: 1,
   wordsPerSecond: 2
 }
+let defaultWords;
+let startGameCheck = false
+firebaseRef.on("value", function (snapshot) {
+  if (snapshot.val()) {
+    defaultWords = snapshot.val();
+    startGameCheck = true
+    document.querySelector('.first-screen__btn').disabled = false;
+    document.querySelector('.loading').style.display = 'none';
+  } else {
+    document.querySelector('.first-screen__btn').disabled = true;
+  }
+});
 
 let currentWord = 0
-const defaultWords = ['Корова', 'Авель'];
 
 
 function startGame() {

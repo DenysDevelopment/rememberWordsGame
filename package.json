@@ -1,0 +1,22 @@
+{
+  "name": "remember-words-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenysDevelopment/rememberWordsGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenysDevelopment/rememberWordsGame/issues"
+  },
+  "homepage": "https://github.com/DenysDevelopment/rememberWordsGame#readme",
+  "dependencies": {
+    "firebase": "^8.9.1"
+  }
+}

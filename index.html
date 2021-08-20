@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Word game</title>
     <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+     </head>
   <body>
     <section class="first-screen screen">
       <div class="container">
@@ -23,7 +25,8 @@
             несколько! <br />
             Во время игры у вас создаются новые нейроны!
           </p>
-          <button class="first-screen__btn btn__screen-next btn" data-screen-next="2">
+          <div class="loading">Ожидание...</div>
+          <button class="first-screen__btn btn__screen-next btn" data-screen-next="2" disabled>
             Играть
           </button>
         </div>
