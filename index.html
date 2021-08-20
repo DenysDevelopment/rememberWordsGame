@@ -66,13 +66,16 @@
       <div class="question-screen__body">
         <ul class="question-screen__inputs">
         </ul>
-        <button class="btn__result btn">Посмотреть результаты</button>
+        <button class="btn__result btn" data-stop="false">Посмотреть результаты</button>
+        <button class="btn__result btn" data-stop="false" onclick="reload()">С начала</button>
       </div>
     </div>
   </section>
   <section class="settings-screen screen screen--lock">
     <div class="container">
-    soon...
+      <h2>Время на запоминание
+одного слова </h2>
+        <input type="number" class="time-per-second">
       <button class="btn" data-screen-next="1" >
       назад
       </button>

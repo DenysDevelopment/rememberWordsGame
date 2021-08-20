@@ -9,7 +9,6 @@ body {
   height: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
-  overflow: hidden;
 }
 
 .container {
@@ -28,6 +27,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease 0s;
   display: block;
+  position: relative;
+  z-index: 2;
 }
 
 @media (any-hover: hover) {
@@ -59,6 +60,7 @@ body {
   padding: 0;
   box-shadow: none;
   margin-bottom: 40px;
+  z-index: 2;
 }
 .settings__icon {
   position: absolute;
@@ -96,13 +98,6 @@ body {
 }
 
 .two-screen {
-  background: linear-gradient(
-    107.56deg,
-    #313965 0%,
-    #4a336f 12.5%,
-    #382b8a 46.87%,
-    #263aa4 100%
-  );
 }
 
 .two-screen__body {
@@ -120,7 +115,7 @@ body {
 }
 
 .timer {
-  width: 100px;
+  padding: 0.5em;
   height: 100px;
   border-radius: 100%;
   background: rgba(183, 183, 183, 0.2);
@@ -222,6 +217,13 @@ body {
 .screen {
   transition: all 0.3s ease 0s;
   min-height: 100vh;
+  background: linear-gradient(
+    107.56deg,
+    #313965 0%,
+    #4a336f 12.5%,
+    #382b8a 46.87%,
+    #263aa4 100%
+  );
 }
 
 .screen--lock {
@@ -230,21 +232,9 @@ body {
 
 .first-screen {
   color: #ffffff;
-  background: linear-gradient(
-    107.56deg,
-    #313965 0%,
-    #4a336f 12.5%,
-    #382b8a 46.87%,
-    #263aa4 100%
-  );
+
   min-height: 100vh;
-  padding-top: 182px;
   position: relative;
-}
-@media (max-width: 1200px) {
-  .first-screen {
-    padding-top: calc(50px + 132 * ((100vw - 320px) / 880));
-  }
 }
 
 .first-screen__btn {
@@ -256,6 +246,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 80vh;
 }
 .first-screen__title {
   font-size: 70px;
@@ -360,4 +352,11 @@ body {
   font-size: 43px;
   filter: blur(1px);
   transform: rotate(8.69deg);
+}
+
+.settings-screen {
+  color: #fff;
+}
+
+.settings-screen h2 {
 }

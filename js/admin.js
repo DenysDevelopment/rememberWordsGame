@@ -43,4 +43,5 @@ btnSend.addEventListener('click', () => {
 btnNextWord.addEventListener('click', () => {
   data.push(input.value.trim());
   clearInput()
+  data = []
 })

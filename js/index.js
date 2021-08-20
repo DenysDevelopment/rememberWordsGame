@@ -13,12 +13,14 @@ const firebaseRef = firebase.database().ref('team')
 
 const btns = document.querySelectorAll('.btn')
 const screens = document.querySelectorAll('.screen')
+let timePerSecondEl = document.querySelector('.time-per-second')
 let screen = 1
 
 for (let i = 0; i < btns.length; i++) {
   const btn = btns[i];
 
   btn.addEventListener('click', () => {
+    if (!!btn.dataset.stop) return
     screen = +btn.dataset.screenNext;
     screenShow(btn.dataset.screenNext - 1)
     if (screen === 2) {
@@ -38,15 +40,34 @@ function screenShow(screen) {
   screens[screen].classList.remove('screen--lock')
 }
 
+function reload() {
+  screenShow(0)
+  document.querySelector('.question-screen__inputs').innerHTML = ''
+  document.querySelector('.loading').style.display = 'block';
+}
 
 //========================================================================================================================================================
 // back-end
-
 const settings = {
   words: 5,
   mode: 1,
   wordsPerSecond: 2
 }
+timePerSecondEl.value = +JSON.parse(localStorage.getItem('time'))
+
+timePerSecondEl.addEventListener('change', () => {
+  localStorage.setItem('time', JSON.stringify(+timePerSecondEl.value))
+  if (timePerSecondEl.value !== '') {
+    settings.wordsPerSecond = +JSON.parse(localStorage.getItem('time'))
+  } else {
+    settings.wordsPerSecond = 2
+    localStorage.setItem('time', 2)
+    timePerSecondEl.value = +JSON.parse(localStorage.getItem('time'))
+  }
+
+})
+
+
 let defaultWords;
 let startGameCheck = false
 firebaseRef.on("value", function (snapshot) {
@@ -86,7 +107,6 @@ function finishGame() {
   }
 
   const inputs = document.querySelectorAll('.question-screen__inputs input')
-  console.log(inputs);
   document.querySelector('.btn__result').addEventListener('click', () => {
     for (let i = 0; i < defaultWords.length; i++) {
       const el = defaultWords[i];
