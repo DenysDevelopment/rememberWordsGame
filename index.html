@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Word game</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
-     </head>
-  <body>
-    <section class="first-screen screen">
-      <div class="container">
-        <div class="first-screen__wrapper">
-          <h1 class="first-screen__title">
-            Игра <br />
-            <b>Запомни слова!</b>
-          </h1>
-          <p class="first-screen__sub-title">
-            <b class="sub-title_black">Описание игры:</b> для участия вам
-            понадобится от одного до восьми игроков, в игре <br />
-            вам нужно за определенное время запомнить слова, <br />
-            а в каком порядке, это уже выбирать вам, ведь режимов игры
-            несколько! <br />
-            Во время игры у вас создаются новые нейроны!
-          </p>
-          <div class="loading">Ожидание...</div>
-          <button class="first-screen__btn btn__screen-next btn" data-screen-next="2" disabled>
-            Играть
-          </button>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word game</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+</head>
+
+<body>
+  <section class="first-screen screen">
+    <div class="container">
+      <button class="btn settings" data-screen-next="4">
+        <img class='settings__icon' src="settngs.svg" alt="">
+        <img class='settings__icon' src="settngs.svg" alt="">
+      </button>
+      <div class="first-screen__wrapper">
+        <h1 class="first-screen__title">
+          Игра <br />
+          <b>Запомни слова!</b>
+        </h1>
+        <p class="first-screen__sub-title">
+          <b class="sub-title_black">Описание игры:</b> для участия вам
+          понадобится от одного до восьми игроков, в игре <br />
+          вам нужно за определенное время запомнить слова, <br />
+          а в каком порядке, это уже выбирать вам, ведь режимов игры
+          несколько! <br />
+          Во время игры у вас создаются новые нейроны!
+        </p>
+        <div class="loading">Ожидание игроков...</div>
+        <button class="first-screen__btn btn__screen-next btn" data-screen-next="2" disabled>
+          Играть
+        </button>
       </div>
-      <div class="words">
-        <div class="words__word word-1" style="top: 15%; left: 1%">Забор</div>
-        <div class="words__word word-2" style="top: -4%; left: 40%">Иисус</div>
-        <div class="words__word word-3" style="top: 40%; left: 15%">Тапок</div>
-        <div class="words__word" style="top: 70%; left: 10%">Книга</div>
-        <div class="words__word" style="top: 70%; left: 64%">Петух</div>
-        <div class="words__word word-6" style="top: 45%; left: 70%">Радуга</div>
-        <div class="words__word word-7" style="top: 65%; left: 35%">Бревно</div>
-        <div class="words__word word-8" style="top: 20%; left: 80%">Корова</div>
-      </div>
-    </section>
-    <section class="two-screen screen screen--lock">
+    </div>
+    <div class="words">
+      <div class="words__word word-1" style="top: 15%; left: 1%">Забор</div>
+      <div class="words__word word-2" style="top: -4%; left: 40%">Иисус</div>
+      <div class="words__word word-3" style="top: 40%; left: 15%">Тапок</div>
+      <div class="words__word" style="top: 70%; left: 10%">Книга</div>
+      <div class="words__word" style="top: 70%; left: 64%">Петух</div>
+      <div class="words__word word-6" style="top: 45%; left: 70%">Радуга</div>
+      <div class="words__word word-7" style="top: 65%; left: 35%">Бревно</div>
+      <div class="words__word word-8" style="top: 20%; left: 80%">Корова</div>
+    </div>
+  </section>
+  <section class="two-screen screen screen--lock">
+    <div class="container">
       <div class="container">
-        <div class="container">
-          <div class="two-screen__body">
-            <p class="two-screen__text">Ожидание...</p>
-            <div class="column">
-              <div class="timer">0</div>
-            </div>
-            </div>
+        <div class="two-screen__body">
+          <p class="two-screen__text">Ожидание...</p>
+          <div class="column">
+            <div class="timer">0</div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="question-screen screen">
-      <div class="container">
-        <div class="question-screen__body">
-          <ul class="question-screen__inputs">
-          </ul>
-          <button class="btn__result btn">Посмотреть результаты</button>
-        </div>
+    </div>
+    </div>
+  </section>
+  <section class="question-screen screen screen--lock">
+    <div class="container">
+      <div class="question-screen__body">
+        <ul class="question-screen__inputs">
+        </ul>
+        <button class="btn__result btn">Посмотреть результаты</button>
       </div>
-    </section>
-    <script src="js/index.js"></script>
-  </body>
+    </div>
+  </section>
+  <section class="settings-screen screen screen--lock">
+    <div class="container">
+    soon...
+      <button class="btn" data-screen-next="1" >
+      назад
+      </button>
+    </div>
+  </section>
+  <script src="js/index.js"></script>
+</body>
+
 </html>

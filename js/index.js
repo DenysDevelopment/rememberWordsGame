@@ -11,7 +11,7 @@ firebase.initializeApp(firebaseConfig);
 const firebaseRef = firebase.database().ref('team')
 
 
-const btns = document.querySelectorAll('.btn__screen-next')
+const btns = document.querySelectorAll('.btn')
 const screens = document.querySelectorAll('.screen')
 let screen = 1
 
