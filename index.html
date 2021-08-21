@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+  <script src="./js/parallax.min.js"></script>
+  <script src="./js/index.js" defer></script>
 </head>
 
 <body>
@@ -32,20 +34,25 @@
           Во время игры у вас создаются новые нейроны!
         </p>
         <div class="loading">Ожидание игроков...</div>
-        <button class="first-screen__btn btn__screen-next btn" data-screen-next="2" disabled>
-          Играть
-        </button>
+        <div class="btns">
+          <button class="first-screen__btn btn__screen-next btn" data-screen-next="2" disabled>
+           Играть (запоминать слова)
+          </button>
+          <a href="/admin.html" class="first-screen__btn btn__screen-next btn" data-screen-next="2">
+            Играть (Писатель слов)
+          </a>
+        </div>
       </div>
     </div>
-    <div class="words">
-      <div class="words__word word-1" style="top: 15%; left: 1%">Забор</div>
-      <div class="words__word word-2" style="top: -4%; left: 40%">Иисус</div>
-      <div class="words__word word-3" style="top: 40%; left: 15%">Тапок</div>
-      <div class="words__word" style="top: 70%; left: 10%">Книга</div>
-      <div class="words__word" style="top: 70%; left: 64%">Петух</div>
-      <div class="words__word word-6" style="top: 45%; left: 70%">Радуга</div>
-      <div class="words__word word-7" style="top: 65%; left: 35%">Бревно</div>
-      <div class="words__word word-8" style="top: 20%; left: 80%">Корова</div>
+    <div class="words" >
+      <div data-depth="0.2" class="words__word word-1" style="margin-top: 15vh; margin-left: 1vw">Забор</div>
+      <div data-depth="0.1" class="words__word word-2" style="margin-top: -4vh; margin-left: 40vw">Иисус</div>
+      <div data-depth="0.1" class="words__word word-3" style="margin-top: 40vh; margin-left: 15vw">Тапок</div>
+      <div data-depth="0.2" class="words__word" style="margin-top: 70vh; margin-left: 10vw">Книга</div>
+      <div data-depth="0.2" class="words__word" style="margin-top: 70vh; margin-left: 64vw">Петух</div>
+      <div data-depth="0.2" class="words__word word-6" style="margin-top: 45vh; margin-left: 70vw">Радуга</div>
+      <div data-depth="0.2" class="words__word word-7" style="margin-top: 65vh; margin-left: 35vw">Бревно</div>
+      <div data-depth="0.3" class="words__word word-8" style="margin-top: 20vh; margin-left: 80vw">Корова</div>
     </div>
   </section>
   <section class="two-screen screen screen--lock">
@@ -81,7 +88,6 @@
       </button>
     </div>
   </section>
-  <script src="js/index.js"></script>
 </body>
 
 </html>

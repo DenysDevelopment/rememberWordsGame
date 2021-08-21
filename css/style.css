@@ -20,7 +20,7 @@ body {
   background: #3dadd0;
   border: 4px solid #ffffff;
   box-shadow: 0px 0px 38px rgba(0, 0, 0, 0.25);
-  padding: 0.3em 3em;
+  padding: 0.3em 1em;
   font-family: "Roboto", sans-serif;
   color: #ffffff;
   font-size: 40px;
@@ -29,6 +29,27 @@ body {
   display: block;
   position: relative;
   z-index: 2;
+  text-decoration: none;
+}
+
+.loading {
+  margin-bottom: 10px;
+  animation: loading 0.8s infinite alternate;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.btns {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
 }
 
 @media (any-hover: hover) {
@@ -86,10 +107,16 @@ body {
   }
 }
 
+.first-screen {
+  position: relative;
+  z-index: 3;
+}
+
 .first-screen__btn:disabled {
   filter: grayscale(1);
   pointer-events: none;
-  opacity: 0.5;
+  background: rgba(172, 172, 172, 0.521);
+  backdrop-filter: blur(5px);
   transition: all 0.3s ease 0s;
 }
 
@@ -232,9 +259,7 @@ body {
 
 .first-screen {
   color: #ffffff;
-
   min-height: 100vh;
-  position: relative;
 }
 
 .first-screen__btn {
@@ -248,21 +273,22 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 80vh;
+  position: relative;
+  z-index: 3;
 }
 .first-screen__title {
   font-size: 70px;
   text-align: center;
-  margin-bottom: 110px;
+  margin-bottom: 60px;
   font-weight: 400;
 }
 @media (max-width: 1200px) {
   .first-screen__title {
     font-size: calc(30px + 40 * ((100vw - 320px) / 880));
+    margin-bottom: calc(10px + 50 * ((100vw - 320px) / 880));
   }
-}
-@media (max-width: 1200px) {
-  .first-screen__title {
-    margin-bottom: calc(30px + 80 * ((100vw - 320px) / 880));
+  .first-screen__sub-title {
+    margin-bottom: calc(10px + 50 * ((100vw - 320px) / 880));
   }
 }
 .first-screen__sub-title {
@@ -296,6 +322,12 @@ body {
 .words {
   color: #ffffff;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 @media (max-width: 762px) {
   .words {
@@ -303,13 +335,12 @@ body {
   }
 }
 .words__word {
-  position: absolute;
+  position: absolute !important;
 }
 
 .word-1 {
   filter: blur(5px);
-  transform: rotate(-12.33deg);
-  font-size: 102px;
+  font-size: 4vw;
 }
 
 .word-2 {

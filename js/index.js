@@ -16,6 +16,8 @@ const screens = document.querySelectorAll('.screen')
 let timePerSecondEl = document.querySelector('.time-per-second')
 let screen = 1
 
+new Parallax(document.querySelector('.words'))
+
 for (let i = 0; i < btns.length; i++) {
   const btn = btns[i];
 
@@ -45,6 +47,7 @@ function reload() {
   document.querySelector('.question-screen__inputs').innerHTML = ''
   document.querySelector('.loading').style.display = 'block';
 }
+
 
 //========================================================================================================================================================
 // back-end
