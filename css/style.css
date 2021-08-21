@@ -52,6 +52,12 @@ body {
   flex-direction: column;
 }
 
+@media (max-width: 762px) {
+  .btn {
+    width: 100%;
+  }
+}
+
 @media (any-hover: hover) {
   .btn:hover {
     background: #2f8eac;

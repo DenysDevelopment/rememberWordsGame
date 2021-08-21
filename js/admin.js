@@ -40,7 +40,7 @@ btnSend.addEventListener('click', () => {
   firebaseRef.set(data)
 })
 
-btnNextWord.addEventListener('click', () => {
+input.value ? alert("Вы не ввели слово") : btnNextWord.addEventListener('click', () => {
   data.push(input.value.trim());
   clearInput()
   data = []

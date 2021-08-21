@@ -90,6 +90,7 @@ let currentWord = 0
 function startGame() {
   countDown(settings.wordsPerSecond)
   showWordNext()
+  document.querySelector('.first-screen__write-btn').disabled = true
   const nextWordTimer = setInterval(() => {
     showWordNext()
     if (currentWord >= defaultWords.length) {
